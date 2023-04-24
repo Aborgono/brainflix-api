@@ -23,26 +23,4 @@ router.get("/:videoID", (req, res) => {
     res.json(specificVideo);
 });
 
-
-// POST endpoint to add a athlete
-router.post("/upload", (req, res) => {    
-    // Make a new athlete with a unique id
-    console.log(req.body);
-    const newVideo = {
-        id: uuidv4(),
-        title: req.body.title,
-        description: req.body.description,
-    };
-
-    // 1. Read the current athletes array
-    // 2. Add to the athletes array
-    // 3. Write the entire new athletes array to the file
-    const videos = readVideosFile();
-    videos.push(newVideo);
-    fs.writeFileSync("../data/videos.json", JSON.stringify(videos));
-
-    // Respond with the athlete that was created
-    res.status(201).json(newVideo);
-});
-
 module.exports = router;

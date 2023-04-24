@@ -3,6 +3,7 @@ const fs = require(`fs`);
 const process =  require(`process`);
 const cors = require('cors');
 const videos = require('./routes/videos');
+const upload = require('./routes/upload')
 const app = express()
 
 app.use(cors());
@@ -13,4 +14,4 @@ app.listen(8080, function(){
 })
 
 app.use(`/videos`, videos)
-// app.use(`/upload`, upload)
+app.use(`/upload`, upload)
