@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 function readVideosFile() {
-    const videosList = fs.readFileSync("./videos.json");
+    const videosList = fs.readFileSync("./data/videos.json");
     const parsedData = JSON.parse(videosList);
     return parsedData;
 }
@@ -21,7 +21,7 @@ router.post("/", (req, res) => {
 
     const videos = readVideosFile();
     videos.push(newVideo);
-    fs.writeFileSync("./videos.json", JSON.stringify(videos));
+    fs.writeFileSync("./data/videos.json", JSON.stringify(videos));
 
 
     res.status(201).json(videos);
