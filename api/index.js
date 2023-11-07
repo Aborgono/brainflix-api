@@ -9,6 +9,12 @@ const app = express()
 app.use(cors());
 app.use(express.json());
 
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('Unhandled Promise Rejection:', reason);
+    // You can add custom error handling here.
+});
+
+
 app.listen(8080, function(){
     console.log('Server is running on port 8080');
 })
