@@ -1,3 +1,4 @@
+import { promises as fs } from 'fs'
 const fs = require(`fs`);
 const { v4: uuidv4 } = require('uuid');
 const express = require('express');
