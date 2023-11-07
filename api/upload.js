@@ -9,6 +9,10 @@ function readVideosFile() {
     return parsedData;
 }
 
+router.get('/', (req, res) => {
+    res.send('this is my upload route')
+})
+
 router.post("/", (req, res) => {    
     const newVideo = {
         id: uuidv4(),
