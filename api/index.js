@@ -2,8 +2,8 @@ const express = require ('express')
 const fs = require(`fs`);
 const process =  require(`process`);
 const cors = require('cors');
-const videos = require('./routes/videos');
-const upload = require('./routes/upload')
+const videos = require('./videos');
+const upload = require('./upload')
 const app = express()
 
 app.use(cors());
@@ -15,3 +15,9 @@ app.listen(8080, function(){
 
 app.use(`/videos`, videos)
 app.use(`/upload`, upload)
+
+app.get('/', (req, res) => {
+    res.send('Hey this is my API running 🥳')
+})
+
+module.exports = app
