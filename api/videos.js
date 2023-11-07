@@ -1,7 +1,6 @@
-import { promises as fs } from 'fs'
 const express = require('express');
 const router = express.Router()
-const fs = require('fs')
+const fs = require('fs').promises
 const { v4: uuidv4 } = require('uuid');
 
 async function readVideosFile() {

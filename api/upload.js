@@ -1,14 +1,26 @@
-import { promises as fs } from 'fs'
-const fs = require(`fs`);
+const fs = require(`fs`).promises;
 const { v4: uuidv4 } = require('uuid');
 const express = require('express');
 const router = express.Router();
 
-function readVideosFile() {
-    const videosList = fs.readFileSync("./data/videos.json");
-    const parsedData = JSON.parse(videosList);
-    return parsedData;
+// function readVideosFile() {
+//     const videosList = fs.readFileSync("./data/videos.json");
+//     const parsedData = JSON.parse(videosList);
+//     return parsedData;
+// }
+
+
+async function readVideosFile() {
+    try {
+        const videosList = await fs.readFile("./data/videos.json", 'utf-8');
+        const parsedData = JSON.parse(videosList);
+        return parsedData;
+    } catch (error) {
+        // Handle the error (e.g., log or re-throw it)
+        throw error;
+    }
 }
+
 
 router.get('/', (req, res) => {
     res.send('this is my upload route')
