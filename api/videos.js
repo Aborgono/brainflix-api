@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 
 async function readVideosFile() {
     try {
-        const videosList = await fs.readFile(process.cwd() + "./data/videos.json", 'utf-8');
+        const videosList = await fs.readFile(process.cwd() + "./videos.json", 'utf-8');
         const parsedData = JSON.parse(videosList);
         return parsedData;
     } catch (error) {
